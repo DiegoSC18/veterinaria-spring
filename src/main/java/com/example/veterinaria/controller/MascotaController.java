@@ -30,5 +30,24 @@ public class MascotaController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<?>
+    crearMacota(@RequestBody Mascota mascota){
+       if (mascota.getNombre() == null || mascota.getNombre().trim().isEmpty()){
+           return ResponseEntity.badRequest().body("El campo nombre es obligatorio");
+       }
+
+       if (mascota.getEdad() == null){
+            return ResponseEntity.badRequest().body("El campo edad es obligatorio");
+       }
+
+       if (mascota.getEspecie() == null || mascota.getEspecie().trim().isEmpty()){
+            return ResponseEntity.badRequest().body("El campo especie es obligatorio");
+       }
+       return  ResponseEntity.ok(mascotaService.crearMascota(mascota));
+
+
+    }
+
 
 }
