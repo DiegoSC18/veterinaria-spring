@@ -3,7 +3,7 @@ package com.example.veterinaria.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "mascota")
+@Table(name = "mascotas")
 public class Mascota {
 
     @Id
